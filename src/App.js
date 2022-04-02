@@ -1,25 +1,43 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Countries from './components/Countries/Countries';
+import { gql, useQuery } from '@apollo/client';
+
+
+const COUNTRY_QUERY = gql`
+    query{
+      continents{
+        code
+        name
+      }
+    }
+  `
 
 function App() {
+  const [code, setCode] = useState("")
+  const { loading, error, data } = useQuery(COUNTRY_QUERY);
+
+  const handleSelectOption = e => {
+    setCode(e.target.value)
+  }
+
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error :(</p>;
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Continents</h1>
+      <select onChange={handleSelectOption} id='continents'>
+        <option defaultValue>select a continent</option>
+        {data?.continents?.map(continent => (
+          <option key={continent?.code} value={continent?.code}>{continent?.name}</option>
+        ))}
+      </select>
+      <Countries code={code} />
     </div>
-  );
+  )
+
 }
 
 export default App;
