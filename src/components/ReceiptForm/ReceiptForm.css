@@ -1,0 +1,139 @@
+/* FORM SECTION STYLE STARTED HERE  */
+
+.form-container {
+    width: 700px;
+    height: 400px;
+    background-color: #f1f1f1;
+    margin: 20px auto;
+    border-radius: 5px;
+    padding: 20px 30px;
+}
+
+.heading {
+    margin-top: 0;
+    padding: 0;
+    color: #333;
+    text-decoration: underline;
+    font-size: 20px;
+}
+
+.form {
+    display: flex;
+    align-items: center;
+}
+
+.form-content {
+    margin-right: 100px;
+}
+
+.input-fields {
+    width: 60%;
+}
+
+.form-container h3 {
+    color: #333;
+    font-weight: 500;
+}
+
+.form-container h3 span {
+    color: red;
+}
+
+.date-input,
+.amount-input,
+.payment-mode,
+.remark-input {
+    padding: 8px;
+    border: 2px solid rgba(90, 90, 90, 0.575);
+    border-radius: 5px;
+    outline: none;
+    background-color: transparent;
+    display: block;
+    margin-top: 10px;
+}
+
+.form-content input::placeholder {
+    color: rgba(90, 90, 90, 0.575);
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.amount-input,
+.remark-input {
+    width: 90%;
+}
+
+.payment-mode {
+    width: 70%;
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 50px;
+}
+
+.button-container button {
+    margin-right: 70px;
+    width: 120px;
+    height: 60px;
+    border: 1px solid red;
+    border-radius: 5px;
+    color: red;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.button-container button:last-child {
+    background-color: green;
+    border-color: green;
+    color: white;
+}
+
+.button-container button span {
+    font-size: 14px;
+    text-decoration: underline;
+}
+
+
+/* FORM SECTION STYLE ENDED HERE  */
+
+
+/* TABLE SECTION STYLE STARTED HERE */
+
+.table-container {
+    width: 53.5%;
+    height: 300px;
+    overflow-y: auto;
+    margin: 0 auto;
+}
+
+.content-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+}
+
+.content-table th,
+td {
+    padding: 15px;
+    text-align: center;
+}
+
+.content-table thead tr {
+    background-color: green;
+    color: white;
+}
+
+.content-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+    background-color: #f2f2f2;
+}
+
+/* TABLE SECTION STYLE ENDED HERE */
