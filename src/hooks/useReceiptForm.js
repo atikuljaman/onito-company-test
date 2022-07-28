@@ -17,11 +17,7 @@ const useReceiptForm = () => {
       remark: remark,
     };
 
-    if (paymentMode === "") {
-      alert("Payment Mode is Required");
-    } else {
-      setReceiptDetails([...receiptDetails, obj]);
-    }
+    setReceiptDetails([...receiptDetails, obj]);
 
     // CLEARING THE INPUT FIELDS
     setDate("");
