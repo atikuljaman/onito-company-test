@@ -14,6 +14,12 @@ const ReceiptForm = () => {
     setPaymentMode,
     setRemark,
     handleSubmit,
+    handleCashFilter,
+    handleAllFilter,
+    handleCardFilter,
+    filterCash,
+    filterAll,
+    filterCard,
   } = useReceiptForm();
 
   return (
@@ -82,27 +88,67 @@ const ReceiptForm = () => {
       {/* TABLE SECTION STARTED HERE */}
 
       {receiptDetails.length > 0 && (
-        <div className="table-container">
-          <table className="content-table">
-            <thead>
-              <tr>
-                <th>Date</th>
-                <th>Amount</th>
-                <th>Payment Mode</th>
-                <th>Remark</th>
-              </tr>
-            </thead>
-            <tbody>
-              {receiptDetails?.map((detail, index) => (
-                <tr key={index}>
-                  <td>{detail?.date}</td>
-                  <td>{detail?.amount}</td>
-                  <td>{detail?.paymentMode}</td>
-                  <td>{detail?.remark}</td>
+        <div>
+          <div className="table-container">
+            <table className="content-table">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Amount</th>
+                  <th>Payment Mode</th>
+                  <th>Remark</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {filterAll &&
+                  receiptDetails?.map((detail, index) => (
+                    <tr key={index}>
+                      <td>{detail?.date}</td>
+                      <td>{detail?.amount}</td>
+                      <td>{detail?.paymentMode}</td>
+                      <td>{detail?.remark}</td>
+                    </tr>
+                  ))}
+
+                {filterCash &&
+                  receiptDetails?.map(
+                    (detail, index) =>
+                      detail.paymentMode === "Cash" && (
+                        <tr key={index}>
+                          <td>{detail?.date}</td>
+                          <td>{detail?.amount}</td>
+                          <td>{detail?.paymentMode}</td>
+                          <td>{detail?.remark}</td>
+                        </tr>
+                      )
+                  )}
+
+                {filterCard &&
+                  receiptDetails?.map(
+                    (detail, index) =>
+                      detail.paymentMode === "Card" && (
+                        <tr key={index}>
+                          <td>{detail?.date}</td>
+                          <td>{detail?.amount}</td>
+                          <td>{detail?.paymentMode}</td>
+                          <td>{detail?.remark}</td>
+                        </tr>
+                      )
+                  )}
+              </tbody>
+            </table>
+          </div>
+          <div className="filter-button-container">
+            <button onClick={handleAllFilter} className="filter-button">
+              All
+            </button>
+            <button onClick={handleCashFilter} className="filter-button">
+              Cash only
+            </button>
+            <button onClick={handleCardFilter} className="filter-button">
+              Card only
+            </button>
+          </div>
         </div>
       )}
 

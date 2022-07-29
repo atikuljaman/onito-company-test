@@ -136,4 +136,27 @@ td {
     background-color: #f2f2f2;
 }
 
+.filter-button-container {
+    width: 53.5%;
+    margin: 0px auto 30px auto;
+}
+
+.filter-button-container button {
+    padding: 10px 15px;
+    cursor: pointer;
+    background-color: green;
+    color: white;
+    border: 0;
+}
+
+.filter-button-container button:nth-child(2) {
+    background-color: rgba(255, 0, 0, 0.836);
+    margin: 0 5px;
+}
+
+.filter-button-container button:nth-child(3) {
+    background-color: rgb(252, 94, 36);
+    margin: 0 5px;
+}
+
 /* TABLE SECTION STYLE ENDED HERE */
